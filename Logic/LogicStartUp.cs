@@ -10,7 +10,7 @@ public static class LogicStartUp
 {
     public static IServiceCollection TryAddLogic(this IServiceCollection serviceCollection)
     {
-        serviceCollection.TryAddScoped<IUserLogicManager, UserLogicManger>();
+        serviceCollection.TryAddScoped<IUserLogicManager, UserLogicManager>();
         return serviceCollection;
     }
 }

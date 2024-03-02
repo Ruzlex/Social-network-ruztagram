@@ -5,12 +5,12 @@ using Logic.Users.Models;
 
 namespace Logic.Users;
 
-public class UserLogicManger: IUserLogicManager
+public class UserLogicManager: IUserLogicManager
 {
     
     private readonly IUserRepository _userRepository;
 
-    public UserLogicManger(IUserRepository userRepository)
+    public UserLogicManager(IUserRepository userRepository)
     {
         _userRepository = userRepository;
     }
