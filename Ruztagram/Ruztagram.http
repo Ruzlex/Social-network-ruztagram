@@ -1,6 +1,0 @@
-@Ruztagram_HostAddress = http://localhost:5037
-
-GET {{Ruztagram_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
