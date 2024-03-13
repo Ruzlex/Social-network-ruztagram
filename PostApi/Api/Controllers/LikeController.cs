@@ -26,7 +26,7 @@ public class LikeController: ControllerBase
         _likeService = likeService;
     }
     
-    [HttpGet]
+    [HttpGet("like-count")]
     [ProducesResponseType<LikeCountResponse>(200)]
     public async Task<IActionResult> GetLikesCountServiceAsync(LikeCounter likeCounter, Post post)
     {
@@ -40,7 +40,7 @@ public class LikeController: ControllerBase
         return Ok(response);
     }
     
-    [HttpPatch]
+    [HttpPatch("like-plus")]
     [ProducesResponseType(200)]
     public async Task<ActionResult> AddPlusOneLikeServiceAsync([FromBody] PostRequest request)
     {
@@ -48,7 +48,7 @@ public class LikeController: ControllerBase
         return Ok();
     }
     
-    [HttpDelete]
+    [HttpDelete("like-minus")]
     [ProducesResponseType(200)]
     public async Task<ActionResult> DelMinusOneLikeServiceAsync([FromBody] PostRequest request)
     {
