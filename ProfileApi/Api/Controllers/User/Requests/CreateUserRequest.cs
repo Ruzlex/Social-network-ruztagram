@@ -1,6 +1,6 @@
-namespace ProfileLogic.Users.Models;
+namespace ProfileApi.Controllers.User.Requests;
 
-public class UserLogic
+public class CreateUserRequest
 {
     public required string Name { get; set; }
     

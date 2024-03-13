@@ -1,6 +1,6 @@
-﻿using Dal.Users.Models;
+using ProfileDal.Users.Models;
 
-namespace Dal.Users;
+namespace ProfileDal.Users.Interfaces;
 
 public interface IUserRepository
 {
@@ -15,4 +15,6 @@ public interface IUserRepository
     Task<string> GetUserNameAsync(Guid userId);
 
     Task<string> AddUserInformation(UserDal user, string info);
+    
+    public Task<Guid> CheckUserExist(Guid userId);
 }

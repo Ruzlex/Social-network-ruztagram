@@ -1,8 +1,6 @@
-﻿
-
 using ExampleCore.Dal.Base;
 
-namespace Dal.Users.Models;
+namespace ProfileDal.Users.Models;
 
 public record UserDal: BaseEntityDal<Guid>
 {

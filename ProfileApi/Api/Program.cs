@@ -1,5 +1,5 @@
-using Dal;
-using Logic;
+using ProfileDal;
+using ProfileLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +9,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-builder.Services.TryAddDal();
 builder.Services.TryAddLogic();
+builder.Services.TryAddDal();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,4 +23,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapControllers();
+
 app.Run();
+

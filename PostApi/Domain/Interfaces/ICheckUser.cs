@@ -1,4 +1,4 @@
-﻿namespace Domain.Interfaces;
+namespace Domain.Interfaces;
 
 public interface ICheckUser
 {

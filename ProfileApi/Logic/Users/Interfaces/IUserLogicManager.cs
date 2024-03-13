@@ -1,10 +1,12 @@
-﻿using Logic.Users.Models;
+using ProfileLogic.Users.Models;
 
-namespace Logic.Users.Interfaces;
+namespace ProfileLogic.Users.Interfaces;
 
 public interface IUserLogicManager
 {
     Task<Guid> AddNewUserAsync(UserLogic user);
+    
+    Task<Guid> CheckUserExist(Guid userId);
 
     Task<string> GetUserNameAsync(Guid userId);
     

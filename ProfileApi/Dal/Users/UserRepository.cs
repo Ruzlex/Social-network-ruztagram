@@ -1,8 +1,10 @@
 ﻿using System.Collections.Concurrent;
-using Dal.Users.Models;
+using ProfileDal.Users.Interfaces;
+using ProfileDal.Users.Models;
 
-namespace Dal.Users;
+namespace ProfileDal.Users;
 
+/// <inheritdoc />
 public class UserRepository: IUserRepository
 {
     
@@ -71,5 +73,15 @@ public class UserRepository: IUserRepository
         }
 
         throw new Exception("Ошибка добавления информации о пользователе");
+    }
+
+    public async Task<Guid> CheckUserExist(Guid userId)
+    {
+        
+        if (Conection.TryGetValue(userId, out var user))
+        {
+            return user.Id = userId;
+        }
+        throw new Exception("Пользователь не найден");
     }
 }

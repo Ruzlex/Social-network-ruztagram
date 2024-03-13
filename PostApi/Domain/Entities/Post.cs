@@ -1,5 +1,3 @@
-﻿
-
 using ExampleCore.Dal.Base;
 
 namespace Domain.Entities;
@@ -16,7 +14,7 @@ public record Post: BaseEntityDal<Guid>
     
     public int LikeCount { get; set; }
     
-    public CreatedPostUserName UserName { get; init; }
+    public CreatedPostUserName UserName { get; set; }
 }
 
 public class CreatedPostUserName

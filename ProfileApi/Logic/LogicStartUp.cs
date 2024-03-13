@@ -1,9 +1,9 @@
-﻿using Logic.Users;
-using Logic.Users.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using ProfileLogic.Users;
+using ProfileLogic.Users.Interfaces;
 
-namespace Logic;
+namespace ProfileLogic;
 
 public static class LogicStartUp
 {

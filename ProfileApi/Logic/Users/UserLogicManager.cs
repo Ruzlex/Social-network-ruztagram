@@ -1,9 +1,9 @@
-﻿using Dal.Users;
-using Dal.Users.Models;
-using Logic.Users.Interfaces;
-using Logic.Users.Models;
+﻿using ProfileDal.Users.Interfaces;
+using ProfileDal.Users.Models;
+using ProfileLogic.Users.Interfaces;
+using ProfileLogic.Users.Models;
 
-namespace Logic.Users;
+namespace ProfileLogic.Users;
 
 public class UserLogicManager: IUserLogicManager
 {
@@ -25,7 +25,13 @@ public class UserLogicManager: IUserLogicManager
             Information = user.Information
         });
     }
-    
+
+    public async Task<Guid> CheckUserExist(Guid userId)
+    {
+        var res = await _userRepository.CheckUserExist(userId);
+        return res;
+    }
+
 
     public async Task<string> GetUserNameAsync(Guid userId)
     {

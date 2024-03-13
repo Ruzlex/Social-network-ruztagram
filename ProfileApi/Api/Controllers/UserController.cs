@@ -1,11 +1,10 @@
-﻿using Api.Controllers.Users.Users.Requests;
-using Api.Controllers.Users.Users.Responses;
-using Logic.Users.Interfaces;
-using Logic.Users.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProfileApi.Controllers.User.Requests;
+using ProfileApi.Controllers.User.Responses;
+using ProfileLogic.Users.Interfaces;
+using ProfileLogic.Users.Models;
 
-
-namespace Api.Controllers;
+namespace ProfileApi.Controllers;
 
 [Route("public/user")]
 public class UserController: ControllerBase
@@ -18,6 +17,7 @@ public class UserController: ControllerBase
     }
     
     [ProducesResponseType<UserInfoResponse>(200)]
+    [HttpGet("info")]
     public async Task<IActionResult> GetInfoAsync([FromQuery] Guid userId)
     {
         var userName = await _userLogicManager.GetUserNameAsync(userId);
@@ -44,6 +44,17 @@ public class UserController: ControllerBase
         });
         
         return Ok(new CreateUserResponse
+        {
+            Id = res
+        });
+    }
+    
+    [HttpPost("exist")]
+    [ProducesResponseType(typeof(CreateUserResponse),200)]
+    public async Task<IActionResult> CheckUserExistProfile([FromQuery] Guid userId)
+    {
+        var res = await _userLogicManager.CheckUserExist(userId);
+        return Ok(new CreateUserResponse()
         {
             Id = res
         });
