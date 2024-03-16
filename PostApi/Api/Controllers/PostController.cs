@@ -64,7 +64,7 @@ public class PostController: ControllerBase
         _createPost = createPost;
     }
     
-    [HttpGet]
+    [HttpGet("post-list")]
     [ProducesResponseType<PostListResponse>(200)]
     public async Task<IActionResult> GetPostListAsync(Guid[] guids)
     {
@@ -89,7 +89,7 @@ public class PostController: ControllerBase
         return Ok(response);
     }
     
-    [HttpPost]
+    [HttpPost("post-create")]
     [ProducesResponseType(200)]
     public async Task<ActionResult> CreatePostAsync([FromBody] PostRequest request)
     {
@@ -103,7 +103,7 @@ public class PostController: ControllerBase
         return Ok();
     }
 
-    [HttpDelete]
+    [HttpDelete("post-delete")]
     [ProducesResponseType(200)]
     public async Task<IActionResult> DeletePostAsync()
     {

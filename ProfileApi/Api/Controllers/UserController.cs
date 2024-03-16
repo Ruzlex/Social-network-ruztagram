@@ -31,7 +31,7 @@ public class UserController: ControllerBase
         });
     }
     
-    [HttpPost]
+    [HttpPost("new-user")]
     [ProducesResponseType(typeof(CreateUserResponse), 200)]
     public async Task<ActionResult> AddNewUserAsync([FromBody] CreateUserRequest dto)
     {
