@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Infastracted\Infastracted.csproj" />
       <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 
