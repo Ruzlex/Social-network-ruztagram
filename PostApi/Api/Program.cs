@@ -1,5 +1,6 @@
 using ExampleCore.HttpLogic;
 using ExampleCore.Logs;
+using ExampleCore.TraceIdLogic;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddHttpRequestService();
+builder.Services.TryAddTraceId();
 
 var app = builder.Build();
 

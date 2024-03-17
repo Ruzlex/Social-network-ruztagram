@@ -1,3 +1,4 @@
+using ExampleCore.TraceIdLogic;
 using ProfileDal;
 using ProfileLogic;
 
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-
+builder.Services.TryAddTraceId();
 builder.Services.TryAddLogic();
 builder.Services.TryAddDal();
 
