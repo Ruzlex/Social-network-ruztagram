@@ -6,11 +6,20 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
         <RootNamespace>ProfileApi</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
     
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Libs\ProfileConnectionLib\ProfileConnectionLib.csproj" />
       <ProjectReference Include="..\Logic\Logic.csproj" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

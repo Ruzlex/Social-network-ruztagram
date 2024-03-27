@@ -4,6 +4,9 @@ using ExampleCore.TraceIdLogic;
 using Serilog;
 using Services;
 using Infastracted;
+using Microsoft.Extensions.ObjectPool;
+using ProfileConnectionLib.ConnectionServices.RabbitConnectionServer;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +25,10 @@ builder.Services.TryAddTraceId();
 builder.Services.TryAddService();
 builder.Services.TryAddInfastracted();
 builder.Services.AddLoggerServices();
-
+builder.Services.AddSingleton<ObjectPool<IConnection>>(serviceProvider =>
+{
+    return new DefaultObjectPool<IConnection>(new RabbitConnectionPool("localhost"), Environment.ProcessorCount * 2);
+});
 var app = builder.Build();
 
 app.UseMiddleware<ReadTraceIdMiddlware>();
